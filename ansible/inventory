@@ -1,0 +1,7 @@
+[prod]
+43.204.96.178
+
+[prod:vars]
+ansible_user=ec2-user
+ansible_ssh_private_key_file=/var/lib/jenkins/.ssh/Raj-Industries.pem
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

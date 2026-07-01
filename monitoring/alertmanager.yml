@@ -1,0 +1,14 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'ankit9131yadav@gmail.com'
+  smtp_auth_username: 'ankit9131yadav@gmail.com'
+  smtp_auth_password: '${SMTP_PASSWORD}'
+
+route:
+  receiver: 'gmail-notifications'
+
+receivers:
+  - name: 'gmail-notifications'
+    email_configs:
+      - to: 'ankitrajvns2@gmail.com'
+        send_resolved: true

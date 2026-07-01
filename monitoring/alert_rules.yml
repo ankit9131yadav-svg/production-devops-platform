@@ -1,0 +1,16 @@
+groups:
+
+- name: server-alerts
+
+  rules:
+
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m
+
+    labels:
+      severity: critical
+
+    annotations:
+      summary: "Instance Down"
+      description: "A monitored instance is down."

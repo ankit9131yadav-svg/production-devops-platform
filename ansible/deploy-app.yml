@@ -1,0 +1,19 @@
+---
+- hosts: prod
+  become: yes
+
+  tasks:
+
+    - name: Pull latest image
+      shell: docker pull ankit9131/production-app:latest
+
+    - name: Remove old container
+      shell: docker rm -f production-app || true
+
+    - name: Run container
+      shell: |
+        docker run -d \
+        --name production-app \
+        --restart always \
+        -p 8081:80 \
+        ankit9131/production-app:latest

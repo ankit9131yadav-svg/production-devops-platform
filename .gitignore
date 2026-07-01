@@ -1,0 +1,14 @@
+*.pem
+
+terraform.tfstate
+terraform.tfstate.*
+
+.terraform/
+
+*.tfvars
+*.log
+
+.env
+
+id_rsa
+id_rsa.pub
