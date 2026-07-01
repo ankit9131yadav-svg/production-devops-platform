@@ -1,0 +1,36 @@
+GitHub
+   │
+   ▼
+Jenkins
+   │
+   ▼
+Docker Build
+   │
+   ▼
+DockerHub
+   │
+   ▼
+Ansible
+   │
+   ▼
+Production Server
+   │
+ ┌─┴────────────┐
+ │              │
+ ▼              ▼
+
+Node Exporter  Filebeat
+ │              │
+ ▼              ▼
+
+Prometheus    Logstash
+ │              │
+ ▼              ▼
+
+Alertmanager Elasticsearch
+ │              │
+ ▼              ▼
+
+Gmail        Kibana
+
+Grafana
