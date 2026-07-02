@@ -1,33 +1,94 @@
-# DevOps Interview Questions
+# Project Interview Questions and Answers
 
-### Explain CI/CD pipeline architecture.
+## Explain Your Project
 
-### Why Jenkins over GitHub Actions?
+This project is a production-grade DevOps platform implemented on AWS. It automates application deployment using Jenkins, Docker, DockerHub, and Ansible while providing monitoring through Prometheus and Grafana and centralized logging through the ELK Stack.
 
-### How Docker image lifecycle works?
+---
 
-### Difference between CMD and ENTRYPOINT?
+## Why Did You Use Jenkins?
 
-### Explain Ansible inventory.
+Jenkins was used to automate CI/CD workflows including Docker image build, DockerHub push, and Ansible deployment.
 
-### Push vs Pull model in Ansible.
+---
 
-### How Prometheus pulls metrics?
+## Why Docker?
 
-### Why Node Exporter?
+Docker ensures consistent deployments across environments and simplifies application packaging.
 
-### Explain Alertmanager workflow.
+---
 
-### Difference between Elasticsearch and Logstash.
+## Why Ansible?
 
-### How Kibana visualizes logs?
+Ansible provides agentless automation for application deployment and server configuration.
 
-### What happens when Jenkins build fails?
+---
 
-### How do you troubleshoot Docker container crashes?
+## Why Nginx?
 
-### Explain reverse proxy architecture.
+Nginx acts as a reverse proxy and provides a production-ready entry point for applications.
 
-### How would you scale this project?
+---
 
-### How would you migrate this to Kubernetes?
+## Why Prometheus?
+
+Prometheus collects infrastructure metrics and enables alert generation.
+
+---
+
+## Why Grafana?
+
+Grafana visualizes infrastructure and application metrics through dashboards.
+
+---
+
+## Why Alertmanager?
+
+Alertmanager sends email notifications whenever alert conditions are triggered.
+
+---
+
+## Why ELK Stack?
+
+ELK provides centralized logging and enables faster troubleshooting and log analysis.
+
+---
+
+## How Does Deployment Work?
+
+GitHub Push
+→ Jenkins Trigger
+→ Docker Build
+→ DockerHub Push
+→ Ansible Deploy
+→ Production Server
+
+---
+
+## How Does Monitoring Work?
+
+Node Exporter
+→ Prometheus
+→ Grafana
+→ Alertmanager
+→ Email Alerts
+
+---
+
+## How Does Logging Work?
+
+Application Logs
+→ Filebeat
+→ Logstash
+→ Elasticsearch
+→ Kibana
+
+---
+
+## What Production Issues Did You Simulate?
+
+* Server Down Alert
+* Application Failure
+* Container Failure
+* Log Collection Verification
+* Pipeline Failure Troubleshooting
