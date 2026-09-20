@@ -1,0 +1,43 @@
+namespace: production-staging
+
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+image:
+  repository: ankit9131/production-app
+  tag: latest
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+
+containerPort: 80
+
+config:
+  APP_ENV: staging
+  APP_NAME: Production DevOps Platform
+  APP_PORT: "80"
+
+autoscaling:
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 75
+
+pdb:
+  minAvailable: 1
+
+secret:
+  DB_USERNAME: ""
+  DB_PASSWORD: ""
+  API_KEY: ""
+
+ingress:
+  host: staging.production-app.local

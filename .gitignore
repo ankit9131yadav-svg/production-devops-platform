@@ -12,3 +12,12 @@ terraform.tfstate.*
 
 id_rsa
 id_rsa.pub
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Secrets
+*.env
+.env

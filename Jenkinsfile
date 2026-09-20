@@ -16,7 +16,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:latest .'
+                sh '''
+                    docker build -t $IMAGE_NAME:latest .
+                '''
             }
         }
 
@@ -27,9 +29,8 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-
                     sh '''
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                     '''
                 }
             }
@@ -37,28 +38,33 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'docker push $IMAGE_NAME:latest'
+                sh '''
+                    docker push $IMAGE_NAME:latest
+                '''
             }
         }
 
-        stage('Deploy to Production') {
+        stage('GitOps Deployment') {
             steps {
-                sh '''
-                   ansible-playbook \
-                     -i /var/lib/jenkins/ansible/inventory \
-                     /var/lib/jenkins/ansible/deploy-app.yml
-                   '''
-                }
-             }    
+                echo 'Docker image pushed successfully.'
+                echo 'ArgoCD is responsible for Kubernetes deployment.'
+                echo 'Kubernetes manifests are managed through GitOps.'
+            }
         }
+    }
 
     post {
+
         success {
-            echo 'Deployment Successful'
+            echo 'CI Pipeline Successful - ArgoCD will handle deployment.'
         }
 
         failure {
-            echo 'Deployment Failed'
+            echo 'CI Pipeline Failed.'
+        }
+
+        always {
+            echo 'Jenkins CI pipeline completed.'
         }
     }
 }

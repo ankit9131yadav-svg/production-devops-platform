@@ -1,0 +1,35 @@
+namespace: production
+
+replicaCount: 3
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+image:
+  repository: ankit9131/production-app
+  tag: latest
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+
+containerPort: 80
+
+config:
+  APP_ENV: production
+  APP_NAME: Production DevOps Platform
+  APP_PORT: "80"
+
+autoscaling:
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+pdb:
+  minAvailable: 2

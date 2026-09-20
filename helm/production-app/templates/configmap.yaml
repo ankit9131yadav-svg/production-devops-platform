@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: production-app-config
+
+data:
+  APP_ENV: {{ .Values.config.APP_ENV | quote }}
+  APP_NAME: {{ .Values.config.APP_NAME | quote }}
+  APP_PORT: {{ .Values.config.APP_PORT | quote }}

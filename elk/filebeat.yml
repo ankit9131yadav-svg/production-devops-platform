@@ -9,6 +9,6 @@ filebeat.inputs:
     - /var/lib/docker/containers/*/*.log
 
 output.logstash:
-  hosts: ["172.31.10.115:5044"]
+  hosts: [":MONITORING_SERVER_IP5044"]
 
 

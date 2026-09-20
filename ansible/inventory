@@ -1,5 +1,5 @@
 [prod]
-43.204.96.178
+PRODUCTION_SERVER_IP
 
 [prod:vars]
 ansible_user=ec2-user
